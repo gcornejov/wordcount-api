@@ -1,11 +1,15 @@
-def wordcount(text):
-	counts = dict()
-	words = text.split()
+class WordCount():
+	def __init__(self, text):
+		self.text = text
 
-	for word in words:
-		if word in counts:
-			counts[word] += 1
-		else:
-			counts[word] = 1
+	def wordcount(text):
+		counts = dict()
+		words = text.split()
 
-	return counts
+		for word in words:
+			if word in counts:
+				counts[word] += 1
+			else:
+				counts[word] = 1
+
+		return counts
