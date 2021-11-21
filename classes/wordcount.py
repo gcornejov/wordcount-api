@@ -2,9 +2,9 @@ class WordCount():
 	def __init__(self, text):
 		self.text = text
 
-	def wordcount(text):
+	def __call__(self):
 		counts = dict()
-		words = text.split()
+		words = self.text.split()
 
 		for word in words:
 			if word in counts:
