@@ -1,0 +1,2 @@
+def wordcount(text):
+	pass
