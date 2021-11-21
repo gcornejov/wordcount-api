@@ -1,3 +1,5 @@
+import re 
+
 class WordCount():
 	def __init__(self, text):
 		self.text = text
@@ -7,9 +9,10 @@ class WordCount():
 		words = self.text.split()
 
 		for word in words:
-			if word in counts:
-				counts[word] += 1
+			re_word = re.sub(r'[^\w\s]', '', word)
+			if re_word in counts:
+				counts[re_word] += 1
 			else:
-				counts[word] = 1
+				counts[re_word] = 1
 
 		return counts
