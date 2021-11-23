@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  wordcount-api:
+    build:
+      context: ./wordcount-api
+      dockerfile: wordcount-api.Dockerfile
+    volumes:
+      - ./wordcount-api:/wordcount-api
+    ports:
+      - 5000:5000
+
+  wordcount-client:
+    build:
+      context: ./wordcount-client
+      dockerfile: wordcount-client.Dockerfile
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./wordcount-client:/wordcount-client
+    ports:
+      - 4000:4000
+    depends_on:
+      - wordcount-api
